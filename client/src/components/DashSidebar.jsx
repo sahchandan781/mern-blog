@@ -25,7 +25,7 @@ export default function DashSidebar() {
       });
       const data = await res.json();
       if (!res.ok) {
-        console.log(error.message);
+        console.log(data.message);
       } else {
         dispatch(signoutSuccess());
       }
@@ -59,7 +59,9 @@ export default function DashSidebar() {
               Profile
             </Sidebar.Item>
           </Link>
-          <Link to="/dashboard?tab=posts">
+          { 
+            currentUser.isAdmin && (
+              <Link to="/dashboard?tab=posts">
               <Sidebar.Item
                 active={tab === 'posts'}
                icon={HiDocumentText}
@@ -67,6 +69,8 @@ export default function DashSidebar() {
                 Posts
                </Sidebar.Item>
           </Link>
+            )
+          }
           <Sidebar.Item
             icon={HiArrowSmRight}
             className="cursor-pointer"
