@@ -35,7 +35,7 @@ export const getPosts = async (req, res, next) => {
       
       ...(req.query.userId && { userId: req.query.userId }),
       ...(req.query.category && { category: req.query.userId }),
-      ...(req.query.slug && { category: req.query.slug }),
+      ...(req.query.slug && { slug: req.query.slug }),
       ...(req.query.postId && { _id: req.query.postId }),
       ...(req.query.searchTerm && { 
         $or: [
