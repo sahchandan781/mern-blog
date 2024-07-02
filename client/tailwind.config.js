@@ -13,6 +13,7 @@ module.exports = {
     // ...
     flowbite.plugin(),
     require('tailwind-scrollbar'),
+    
   ],
 };
 
